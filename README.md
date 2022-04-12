@@ -24,6 +24,15 @@ cargo install cargo-edit
 cargo add panic_halt
 ```
 
+## Set Up Git Hooks
+
+The ambi_mock_client repository makes use of several Git hooks to ensure that code quality standards are met and consistent. To automatically configure these hooks for your local workspace, you can run the following:
+```bash
+./scripts/create-git-hooks
+```
+
+This will create symlinks to the Git hooks, preserving any hooks that you may have already configured.
+
 ## Running
 
 For a debug build
@@ -34,7 +43,7 @@ For a release build
 ```
 cargo run --release
 ```
-  
+
 ## Debugging
 
 To debug you can use either `cargo run` which will try and launch a gdb session connecting to a local OpenOCD instance
