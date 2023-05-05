@@ -43,10 +43,9 @@ use esp32_wroom_rp::{
     tcp_client::Connect, tcp_client::TcpClient, wifi::ConnectionStatus, wifi::Wifi,
 };
 
-const MAX_HTTP_DOC_LENGTH: usize = 4096 as usize;
+include!("secrets/secrets.rs");
 
-const SSID: &str = "Zion";
-const PASSPHRASE: &str = "Diesel12103465";
+const MAX_HTTP_DOC_LENGTH: usize = 4096 as usize;
 
 /// The linker will place this boot block at the start of our program image. We
 /// need this to help the ROM bootloader get our code up and running.
@@ -186,9 +185,9 @@ fn main() -> ! {
                     defmt::info!("set_dns result: {:?}", dns_result);
 
                     // let hostname = "github.com";
-                    let ip_address: IpAddress = [10, 0, 1, 3]; // production Ambi server
+                    let ip_address: IpAddress = [10, 0, 1, 4]; // production Ambi server
 
-                    let port: Port = 80;
+                    let port: Port = 8000;
                     let mode: TransportMode = TransportMode::Tcp;
 
                     // measure temperature, pressure, and humidity
